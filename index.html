@@ -72,25 +72,27 @@
         };
 
         fetch(googleScriptURL, {
-    method: "POST",
-    mode: "no-cors", // This tells the browser to just send the data and not wait for a complex handshake
-    headers: {
-        "Content-Type": "text/plain;charset=utf-8",
-    },
-    body: JSON.stringify(data)
-}).then(() => {
-    document.getElementById("message").innerHTML = "<h3 class='success'>✅ Attendance Marked!</h3>";
-}).catch(err => {
-    document.getElementById("message").innerText = "❌ Connection Error";
-});
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "text/plain;charset=utf-8",
+            },
+            body: JSON.stringify(data)
+        }).then(() => {
+            document.getElementById("message").innerHTML = "<h3 class='success'>✅ Attendance Marked!</h3>";
+        }).catch(err => {
+            document.getElementById("message").innerText = "❌ Connection Error";
+        });
+    } // <--- THIS BRACE WAS MISSING
 
     function goBack() {
         document.getElementById("scanSection").classList.add("hidden");
         document.getElementById("loginSection").classList.remove("hidden");
-        location.reload(); // Refresh camera
+        location.reload(); 
     }
 </script>
 
 </body>
 
 </html>
+
